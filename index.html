@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gravitech IOT</title>
+    <link rel="icon" href="./assets/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+      
+      body {
+        padding: 0px;
+        margin: 0px;
+        font-family: "Kanit", sans-serif;
+        overflow: hidden;
+        user-select: none;
+      }
+      .navigation-bottom {
+        position: fixed;
+        width: 90%;
+        height: 80px;
+        line-height: 90px;
+        box-shadow: 0px 0px 10px #DDDDDD;
+        border-radius: 20px;
+        margin-left: 5%;
+        bottom: 50px;
+        display: grid;
+        grid-template-columns: 30% 40% 30%;
+        z-index: 90;
+        background-color: #FFFFFF;
+        & > div {
+          text-align: center;
+          display: grid;
+          grid-template-columns: 1;
+          & > i {
+            font-size: 30px;
+            margin: 0px;
+            line-height: 50px;
+            height: 30px;
+          }
+
+          & > span {
+            font-size: 12px;
+            margin: 0px;
+            height: 10px;
+            line-height: 10px;
+          }
+        }
+
+        & > div:hover {
+            color: #FF7A00;
+        }
+      }
+
+      .container {
+        height: 90dvh;
+      }
+
+      .bg-element {
+        position: absolute;
+        bottom: 0;
+        width: 100dvw;
+        height: 90px;
+        border-radius: 40px 40px 0px 0px;
+        background: linear-gradient(#F61A0E, #FFEF00);
+      }
+
+      .logo-banner {
+        width: 60%;
+        display: block;
+        margin: auto;
+        margin-top: 40px;
+      }
+
+      .container-item {
+        width: 96%;
+        height: 100px;
+        padding: 2%;
+        display: grid;
+        grid-template-columns: 49% 49%;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="container">
+        <div>
+            <img src="./assets/logo_mobile.png" class="logo-banner"/>
+        </div>
+        <div class="container-item">
+            <div>
+                s
+            </div>
+            <div>
+                s
+            </div>
+        </div>
+      </div>
+      <div class="navigation-bottom">
+        <div>
+          <i class="fa fa-home"></i>
+          <span>Home</span>
+        </div>
+        <div>
+          <i class="fa fa-cog"></i>
+          <span>Setting</span>
+        </div>
+        <div>
+          <i class="fa fa-question-circle-o"></i>
+          <span>Contact</span>
+        </div>
+      </div>
+      <div class="bg-element">
+        
+      </div>
+    </div>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script>
+      // Connect to the MQTT broker
+      const client = mqtt.connect("wss://broker.hivemq.com:8000/mqtt");
+
+      // When the client is connected
+      client.on("connect", function () {
+        console.log("Connected to broker");
+        client.subscribe("temp", function (err) {
+          if (!err) {
+            console.log("Subscribed to test/topic");
+            client.publish("temp", "Hello MQTT");
+          }
+        });
+      });
+
+      // When a message is received
+      client.on("message", function (topic, message) {
+        // message is a Buffer
+        console.log(topic, message.toString());
+      });
+    </script>
+  </body>
+</html>

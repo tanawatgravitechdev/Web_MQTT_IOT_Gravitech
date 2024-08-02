@@ -1,0 +1,16 @@
+{
+    "vsmqtt.brokerProfiles": [
+        {
+            "name": "broker.emqx.io",
+            "host": "broker.emqx.io",
+            "port": 1883,
+            "clientId": "vsmqtt_client_36db"
+        },
+        {
+            "name": "broker.hivemq.com",
+            "host": "broker.hivemq.com",
+            "port": 1883,
+            "clientId": "vsmqtt_client_2207"
+        }
+    ]
+}
