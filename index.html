@@ -77,11 +77,38 @@
       }
 
       .container-item {
+        margin-top: 20px;
         width: 96%;
         height: 100px;
         padding: 2%;
         display: grid;
         grid-template-columns: 49% 49%;
+
+        & > div {
+            width: 90%;
+            margin: auto;
+            display: block;
+            & > div {
+                background-color: #DDDDDD;
+                margin: 5%;
+                padding-top: 10%;
+                padding-bottom: 10%;
+                border-radius: 10px;
+                & > img {
+                    width: 80%;
+                    display: block;
+                    margin: auto;
+                }
+            }
+            & > p {
+                width: 100% !important;
+                text-align: center;
+            }
+        }
+
+        & > div:hover {
+            opacity: .8;
+        }
       }
     </style>
   </head>
@@ -93,10 +120,20 @@
         </div>
         <div class="container-item">
             <div>
-                s
+                <div>
+                    <img src="./assets/sw12x12.png" />
+                </div>
+                <p>
+                    SW1
+                </p>
             </div>
             <div>
-                s
+                <div>
+                    <img src="./assets/sw12x12.png" />
+                </div>
+                <p>
+                    SW2
+                </p>
             </div>
         </div>
       </div>
