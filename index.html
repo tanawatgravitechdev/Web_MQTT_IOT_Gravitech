@@ -19,6 +19,7 @@
         overflow: hidden;
         user-select: none;
       }
+
       .navigation-bottom {
         position: fixed;
         width: 90%;
@@ -110,10 +111,20 @@
             opacity: .8;
         }
       }
+
+      .mobile {
+        display: none;
+      }
+      
+      @media only screen and (max-width: 600px) {
+        .mobile {
+            display: block;
+        }
+      }
     </style>
   </head>
   <body>
-    <div>
+    <div class="mobile">
       <div class="container">
         <div>
             <img src="./assets/logo_mobile.png" class="logo-banner"/>
